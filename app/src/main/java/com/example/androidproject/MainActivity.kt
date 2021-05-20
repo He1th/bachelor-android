@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity(), OnMovieClickListener {
     fun createTestMovieList(){
 
         for(i in 1..100){
-            movies.add(Movie("Navn" + i, "Test genre", "2001"))
+            movies.add(Movie("Navn" + i, "Test genre", "2001", 0, ""))
         }
 
     }
@@ -43,6 +43,8 @@ class MainActivity : AppCompatActivity(), OnMovieClickListener {
 
         val intent = Intent(this, MovieDetail::class.java)
         intent.putExtra("name", movies[position].name)
+        intent.putExtra("id", movies[position].id)
+        intent.putExtra("posterPath", movies[position].posterPath)
         startActivity(intent)
 
     }
@@ -57,32 +59,37 @@ class MainActivity : AppCompatActivity(), OnMovieClickListener {
             .build()
 
         val service = retrofit.create(WeatherService::class.java)
-        val call: Call<List<MovieResponse>> = service.getCurrentWeatherData()
+        val call: Call<MovieResponse> = service.getCurrentWeatherData(AppId, 1)
 
-        call.enqueue(object : Callback<List<MovieResponse>> {
 
-            override fun onResponse(call: Call<List<MovieResponse>>?, response: Response<List<MovieResponse>>?) {
+
+        call.enqueue(object : Callback<MovieResponse> {
+
+            override fun onResponse(call: Call<MovieResponse>?, response: Response<MovieResponse>?) {
                 if (response != null) {
-                    for (item in response.body())
-                        movies.add(Movie(item.title, "asdas", "asdas"))
+
+                    var results : ArrayList<MovieDetails> = response.body().results;
+
+                    for (item in results)
+                        movies.add(Movie(item.title, "asdas", "asdas", item.id, item.posterPath))
                 }
                 movieAdapter.notifyDataSetChanged()
                 Log.d("asd", "DET VIRKER");
             }
 
-            override fun onFailure(call: Call<List<MovieResponse>>?, t: Throwable?) {
-                Log.d("asd", "asdåoajsdsaj");
+            override fun onFailure(call: Call<MovieResponse>?, t: Throwable?) {
+                Log.d("asd", t.toString());
             }
+
         })
 
 
     }
     companion object {
 
-        var BaseUrl = "https://jsonplaceholder.typicode.com/"
-        var AppId = "20480b32fedffa9559da9ca0b82f4673"
-        var lat = "35"
-        var lon = "139"
+        var BaseUrl = "https://api.themoviedb.org/3/movie/"
+        var AppId = "6695860255dc3d466ab6598ff64580f4"
+
     }
 
 }

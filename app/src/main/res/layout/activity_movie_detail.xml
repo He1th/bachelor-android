@@ -20,5 +20,20 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"/>
 
+    <CheckBox
+        android:id="@+id/isLiked"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"/>
+
+
+    <ImageView
+        android:id="@+id/poster"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#000"
+        android:padding="30dp"
+        android:layout_marginTop="150dp"/>
+
 
 </RelativeLayout>
