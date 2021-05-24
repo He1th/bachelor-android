@@ -19,10 +19,12 @@ class MovieDetail : AppCompatActivity() {
 
         val name = intent.getStringExtra("name");
         val posterPath = intent.getStringExtra("posterPath");
+        val overview = intent.getStringExtra("overview");
         val movieID = intent.getIntExtra("id", 0);
 
         val moviePoster: ImageView = findViewById(R.id.poster);
         val movieName: TextView = findViewById(R.id.tv_name);
+        val movieDescription: TextView = findViewById(R.id.description);
         val isLiked: CheckBox = findViewById(R.id.isLiked);
 
         Glide.with(getApplicationContext())
@@ -51,6 +53,7 @@ class MovieDetail : AppCompatActivity() {
         }
 
         movieName.text = name;
+        movieDescription.text = overview;
 
     }
 }

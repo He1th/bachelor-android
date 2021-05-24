@@ -7,5 +7,5 @@ import retrofit2.http.Query
 
 interface WeatherService {
     @GET("popular")
-    fun getCurrentWeatherData(@Query("api_key") api_key: String?, @Query("page") id: Int?): Call<MovieResponse>
+    fun getPopularMovies(@Query("api_key") api_key: String?, @Query("page") id: Int?): Call<MovieResponse>
 }

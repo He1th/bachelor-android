@@ -16,4 +16,8 @@ class MovieDetails {
     var title: String = "asds"
     @SerializedName("poster_path")
     var posterPath: String = ""
+    @SerializedName("overview")
+    var overview: String = ""
+    @SerializedName("vote_average")
+    var voteAverage: String = ""
 }
