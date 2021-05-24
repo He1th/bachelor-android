@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity(), OnMovieClickListener {
 
     }
 
-    private fun increatePage(){
+    private fun increasePage(){
         page++;
     }
 
@@ -78,7 +78,7 @@ class MainActivity : AppCompatActivity(), OnMovieClickListener {
                         movies.add(Movie(item.title, item.voteAverage, item.id, item.posterPath, item.overview))
                 }
                 movieAdapter.notifyDataSetChanged()
-                increatePage();
+                increasePage();
             }
 
             override fun onFailure(call: Call<MovieResponse>?, t: Throwable?) {
