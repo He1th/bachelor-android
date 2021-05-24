@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity(), OnMovieClickListener {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
-        val service = retrofit.create(WeatherService::class.java)
+        val service = retrofit.create(MovieService::class.java)
         val call: Call<MovieResponse> = service.getPopularMovies(AppId, page)
 
         call.enqueue(object : Callback<MovieResponse> {
