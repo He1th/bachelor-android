@@ -37,15 +37,16 @@ class MovieDetail : AppCompatActivity() {
         }
 
         isLiked.setOnCheckedChangeListener { _, isChecked ->
-            Toast.makeText(this,isChecked.toString(),Toast.LENGTH_SHORT).show()
 
             if(isChecked){
                 val newLike = Likes(movieID);
 
+                Toast.makeText(this, "Movie has been liked", Toast.LENGTH_SHORT).show()
                 Log.d("test", "added")
                 db.addLike(newLike)
             }else{
 
+                Toast.makeText(this, "Movie has been disliked", Toast.LENGTH_SHORT).show()
                 db.deleteLike(movieID);
 
                 Log.d("test", "new")
