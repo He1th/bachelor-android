@@ -21,8 +21,10 @@ class MainActivity : AppCompatActivity(), OnMovieClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var movieAdapter = MovieAdapter(movies, this)
+        var movieAdapter = MovieAdapter(movies, this, this)
         val movieList: RecyclerView = findViewById(R.id.rv_movie_list)
+
+
         movieList.adapter = movieAdapter
         movieList.layoutManager = LinearLayoutManager(this);
 

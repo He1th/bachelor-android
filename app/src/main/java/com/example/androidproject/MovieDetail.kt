@@ -28,7 +28,7 @@ class MovieDetail : AppCompatActivity() {
         val isLiked: CheckBox = findViewById(R.id.isLiked);
 
         Glide.with(getApplicationContext())
-                .load("https://image.tmdb.org/t/p/original/" + posterPath)
+                .load("https://image.tmdb.org/t/p/w500/" + posterPath)
                 .into(moviePoster);
 
         val like = db.getLike(movieID);

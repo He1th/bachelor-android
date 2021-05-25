@@ -53,19 +53,21 @@
                     android:id="@+id/textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Synes godt om denne film"
+                    android:layout_marginTop="12dp"
+                    android:text="Like this movie"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.631"
+                    app:layout_constraintHorizontal_bias="0.296"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_name"
-                    tools:text="Synes godt om denne film" />
+                    tools:text="Like this movie" />
 
                 <CheckBox
                     android:id="@+id/isLiked"
-                    android:layout_width="wrap_content"
+                    android:layout_width="48dp"
                     android:layout_height="wrap_content"
                     app:layout_constraintEnd_toStartOf="@+id/textView"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_name" />
 
                 <TextView
