@@ -26,8 +26,8 @@ class MovieAdapter(private val movies : ArrayList<Movie>, private val onMovieCli
         var movie = movies[position]
 
         holder.itemView.findViewById<TextView>(R.id.tv_name).text = movie.name;
-        holder.itemView.findViewById<TextView>(R.id.description).text = movie.overview.substring(0, Math.min(movie.overview.length, 40));
-        holder.itemView.findViewById<TextView>(R.id.vote).text = "Vote average:" + movie.vote_average;
+        holder.itemView.findViewById<TextView>(R.id.description).text = movie.overview.substring(0, Math.min(movie.overview.length, 40)) + "...";
+        holder.itemView.findViewById<TextView>(R.id.vote).text = "Vote average: " + movie.vote_average;
         val moviePoster = holder.itemView.findViewById<ImageView>(R.id.Poster);
 
         Glide.with(ctx).load("https://image.tmdb.org/t/p/w154/" + movie.posterPath)
